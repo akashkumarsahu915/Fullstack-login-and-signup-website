@@ -1,4 +1,3 @@
-import path from 'path'
 import './App.css'
 import Navbar from './components/ui/Navbar'
 // import { Button } from './components/ui/button'
@@ -12,24 +11,16 @@ function App() {
   const appRouter = createBrowserRouter([
     {
       path: "/",
-      element: <MainLayout />,
-      children: [
-        {
-          path: "/",
-          element:
-            <>
-              <HeroSection />
-
-            </>,
-        },
-        {
-          path: "login",
-          element: <Login />,
-        }
-      ],
+      element: <Login />,
     },
-  
-
+    {
+      path: "/dashboard",
+      element: <MainLayout />,
+    },
+    {
+      path: "/login",
+      element: <Login />,
+    }
   ])
   return (
     <main>

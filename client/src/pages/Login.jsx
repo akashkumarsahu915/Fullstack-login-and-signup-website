@@ -58,7 +58,7 @@ function Login() {
             if (type === "login") {
                 // Sending login data to the backend
                 response = await axios.post('http://localhost:3000/api/user/login', inputData);
-                setTimeout(() => navigate("/"), 1500);
+                setTimeout(() => navigate("/dashboard"), 1500);
             }
 
 
@@ -72,8 +72,7 @@ function Login() {
             console.error("Error during request:", error);
             // alert("An error occurred. Please try again.");
             setSnackbarOpen(true);
-            setSnackbarMessage("login failed")
-
+            setSnackbarMessage(`login failed due to ${error.response.data.message}`)
         } finally {
             setLoading(false);  // Hide the loading spinner after the request finishes (either success or failure)
         }
@@ -88,7 +87,7 @@ function Login() {
     return (
         <div className="flex items-center w-full justify-center mt-24 ">
 
-            <Tabs defaultValue="account" className="w-[400px]">
+            <Tabs defaultValue="signup" className="w-[400px]">
                 <TabsList className="grid w-full grid-cols-2">
                     <TabsTrigger value="signup">Signup</TabsTrigger>
                     <TabsTrigger value="login">Login</TabsTrigger>

@@ -8,7 +8,7 @@ connectDb();
 const app = express();
 const port = process.env.PORT
 // apis
-app.use(cors({ origin: 'http://localhost:5173',}))
+app.use(cors({ origin: 'http://localhost:5173'}))
 dotenv.config({});
 app.use(express.json());
 app.use("/api/user", userRoute);
